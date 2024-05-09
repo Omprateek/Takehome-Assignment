@@ -1,0 +1,15 @@
+from django.db import models
+
+# Create your models here.
+
+class MyModel(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class UploadedImage(models.Model):
+    image = models.ImageField(upload_to='uploads/')
+    upload_date = models.DateTimeField(auto_now_add=True)
